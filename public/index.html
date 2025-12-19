@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Ticaret Platformu | Talep ve Teklif Sistemi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Trade<span class="highlight">Flow</span></a>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="#features">Özellikler</a>
+                <a href="market.html">Pazar Yeri</a>
+                <a href="#categories">Sektörler</a>
+                <a href="#pricing">Paketler</a>
+                <a href="login.html" class="btn btn-secondary">Giriş Yap</a>
+                <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Polymer Market Ticker (Landing Page) -->
+    <div class="ticker-bar landing-ticker">
+        <div class="container d-flex-ticker">
+            <div class="ticker-label"><i class="fa-solid fa-chart-line"></i> CANLI PİYASA:</div>
+            <div class="ticker-scroll">
+                <div class="ticker-item"><span>PVC (S70)</span> <span class="buy">Alış: $950</span> <span
+                        class="sell">Satış: $980</span></div>
+                <div class="ticker-item"><span>PP (Rafya)</span> <span class="buy">Alış: $1,020</span> <span
+                        class="sell">Satış: $1,050</span></div>
+                <div class="ticker-item"><span>PE (LDPE)</span> <span class="buy">Alış: $1,100</span> <span
+                        class="sell">Satış: $1,150</span></div>
+                <div class="ticker-item"><span>ABS (Natural)</span> <span class="buy">Alış: $1,450</span> <span
+                        class="sell">Satış: $1,500</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="distributor-badge">
+                <i class="fa-solid fa-certificate"></i>
+                <span><strong>KaanPVC</strong> Resmi Distribütörü</span>
+            </div>
+            <h1>Ticaretin Yeni Yolu: <br>Talep Oluşturur, Teklif Topla.</h1>
+            <p>Ürün, Makine, Hizmet veya Lojistik. İhtiyacınızı belirtin, onaylı tedarikçilerden anında fiyat teklifleri
+                alın. Hızlı, güvenli ve rekabetçi.</p>
+            <div class="hero-buttons">
+                <a href="market.html" class="btn btn-lg btn-primary">Hemen Talep Oluştur</a>
+                <a href="#how-it-works" class="btn btn-lg btn-outline">Nasıl Çalışır?</a>
+            </div>
+        </div>
+        <div class="hero-bg-shape"></div>
+    </header>
+
+    <!-- Live Market Data Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Son Piyasa Fiyatları</h2>
+            <div class="market-preview-card">
+                <div class="table-responsive">
+                    <table class="market-table preview-table">
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>Tür</th>
+                                <th>Son Fiyat (Ort.)</th>
+                                <th>Günlük Değişim</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">PVC</td>
+                                <td>S-PVC (K67)</td>
+                                <td class="text-dark fw-bold">$965.00</td>
+                                <td class="text-success fw-bold">%1.2 <i class="fa-solid fa-arrow-up"></i></td>
+                                <td><span class="badge badge-green-soft">Yükselişte</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Polipropilen (PP)</td>
+                                <td>Rafya</td>
+                                <td class="text-dark fw-bold">$1,030.00</td>
+                                <td class="text-success fw-bold">%0.5 <i class="fa-solid fa-arrow-up"></i></td>
+                                <td><span class="badge badge-green-soft">Sabit</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Polietilen (PE)</td>
+                                <td>LDPE</td>
+                                <td class="text-dark fw-bold">$1,120.00</td>
+                                <td class="text-danger fw-bold">%0.8 <i class="fa-solid fa-arrow-down"></i></td>
+                                <td><span class="badge badge-orange-soft">Düşüşte</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">ABS</td>
+                                <td>Enjeksiyon</td>
+                                <td class="text-dark fw-bold">$1,480.00</td>
+                                <td class="text-success fw-bold">%2.1 <i class="fa-solid fa-arrow-up"></i></td>
+                                <td><span class="badge badge-green-soft">Yükselişte</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">PS</td>
+                                <td>Kristal</td>
+                                <td class="text-dark fw-bold">$1,350.00</td>
+                                <td class="text-muted fw-bold">%0.0 <i class="fa-solid fa-minus"></i></td>
+                                <td><span class="badge badge-gray">Durgun</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="market.html" class="btn btn-outline">Tüm Piyasayı Görüntüle <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="section">
+        <div class="container">
+            <h2 class="section-title">Hizmet Verdiğimiz Sektörler</h2>
+            <div class="grid-4">
+                <!-- Ürünler -->
+                <div class="card category-card">
+                    <div class="icon-box"><i class="fa-solid fa-box-open"></i></div>
+                    <h3>Ürünler</h3>
+                    <ul>
+                        <li>Polimerler</li>
+                        <li>Kimyasallar</li>
+                        <li>Endüstriyel Malzemeler</li>
+                    </ul>
+                </div>
+                <!-- Makineler -->
+                <div class="card category-card">
+                    <div class="icon-box"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Makineler</h3>
+                    <ul>
+                        <li>Yeni Makineler</li>
+                        <li>İkinci El Makineler</li>
+                        <li>Yedek Parça</li>
+                    </ul>
+                </div>
+                <!-- Hizmetler -->
+                <div class="card category-card">
+                    <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Hizmetler</h3>
+                    <ul>
+                        <li>Fuar Hizmetleri</li>
+                        <li>Danışmanlık</li>
+                        <li>Yatırım Projeleri</li>
+                    </ul>
+                </div>
+                <!-- Lojistik -->
+                <div class="card category-card">
+                    <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Lojistik</h3>
+                    <ul>
+                        <li>Karayolu Taşımacılığı</li>
+                        <li>Uluslararası Nakliye</li>
+                        <li>Depolama</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Sistem Nasıl İşler?</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <h3>Talep Oluştur</h3>
+                    <p>İhtiyacınız olan ürünün detaylarını, miktarını ve özelliklerini girerek sisteme yükleyin.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <h3>Sistem Eşleştirsin</h3>
+                    <p>Akıllı, sistemimiz talebinizi en uygun tedarikçilere anında iletir.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <h3>Teklifleri Topla</h3>
+                    <p>Satıcılardan gelen fiyat tekliflerini karşılaştırın ve en uygun olanı seçin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Credits -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <h2 class="section-title">Kredi Paketleri</h2>
+            <p class="section-subtitle">Her bir talep 1 Kredi değerindedir. İş hacminize uygun paketi seçin.</p>
+            <div class="grid-3 pricing-grid">
+                <div class="card pricing-card">
+                    <h3>Başlangıç</h3>
+                    <div class="price">100 USD</div>
+                    <div class="credits">10 Kredi</div>
+                    <a href="#" class="btn btn-outline full-width">Satın Al</a>
+                </div>
+                <div class="card pricing-card popular">
+                    <div class="badge">En Popüler</div>
+                    <h3>Profesyonel</h3>
+                    <div class="price">170 USD</div>
+                    <div class="credits">20 Kredi</div>
+                    <a href="#" class="btn btn-primary full-width">Satın Al</a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Kurumsal</h3>
+                    <div class="price">350 USD</div>
+                    <div class="credits">50 Kredi</div>
+                    <a href="#" class="btn btn-outline full-width">Satın Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TradeFlow. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

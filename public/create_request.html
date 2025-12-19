@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Talep Oluştur | TradeFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Wizard Specific Styles */
+        .wizard-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .step-indicator {
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: var(--transition);
+        }
+
+        .step-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-selection label {
+            cursor: pointer;
+            display: block;
+        }
+
+        .category-selection input[type="radio"] {
+            display: none;
+        }
+
+        .category-selection input[type="radio"]:checked+.category-box {
+            border-color: var(--accent-color);
+            background-color: #eff6ff;
+        }
+
+        .category-box {
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .category-box:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .step-indicator.active .step-circle {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 0 0 4px #dbeafe;
+        }
+
+        .step-indicator.completed .step-circle {
+            background: var(--success-color);
+            color: white;
+        }
+
+        /* Wizard Content */
+        .step-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media(max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">Trade<span class="highlight">Flow</span></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Genel Bakış</a></li>
+                    <li><a href="market.html"><i class="fa-solid fa-store"></i> Pazar Yeri</a></li>
+                    <li class="active"><a href="create_request.html"><i class="fa-solid fa-plus-circle"></i> Yeni Talep
+                            Oluştur</a></li>
+                    <li><a href="#"><i class="fa-solid fa-list-ul"></i> Taleplerim</a></li>
+                    <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Gelen Teklifler</a></li>
+                    <li><a href="#"><i class="fa-solid fa-wallet"></i> Bakiye ve Paketler</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building"></i> Firma Profili</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout"><i class="fa-solid fa-sign-out-alt"></i> Çıkış Yap</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Yeni Alım Talebi Oluştur</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="credit-badge"><i class="fa-solid fa-coins"></i> 250 Kredi</div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Profile">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-container">
+                <div class="wizard-container">
+
+                    <!-- Progress Steps -->
+                    <div class="wizard-steps">
+                        <div class="step-indicator active" id="indicator-1">
+                            <div class="step-circle">1</div>
+                            <span>Kategori</span>
+                        </div>
+                        <div class="step-indicator" id="indicator-2">
+                            <div class="step-circle">2</div>
+                            <span>Detaylar</span>
+                        </div>
+                        <div class="step-indicator" id="indicator-3">
+                            <div class="step-circle">3</div>
+                            <span>Onay</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Category Selection -->
+                    <div class="step-content active" id="step-1">
+                        <h2 class="text-center mb-4">Hangi sektörde alım yapacaksınız?</h2>
+                        <div class="grid-2 category-selection">
+                            <label>
+                                <input type="radio" name="category" value="polymer" checked
+                                    onchange="updateSubCategories()">
+                                <div class="category-box">
+                                    <i class="fa-solid fa-box-open fa-3x mb-3 text-accent"></i>
+                                    <h3>Ürünler</h3>
+                                    <p class="text-muted">Polimer, Kimyasal vb.</p>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="category" value="machine" onchange="updateSubCategories()">
+                                <div class="category-box">
+                                    <i class="fa-solid fa-gears fa-3x mb-3 text-accent"></i>
+                                    <h3>Makineler</h3>
+                                    <p class="text-muted">Yeni veya 2. El Makine</p>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="category" value="service" onchange="updateSubCategories()">
+                                <div class="category-box">
+                                    <i class="fa-solid fa-handshake fa-3x mb-3 text-accent"></i>
+                                    <h3>Hizmetler</h3>
+                                    <p class="text-muted">Danışmanlık, Fuar vb.</p>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="category" value="logistics" onchange="updateSubCategories()">
+                                <div class="category-box">
+                                    <i class="fa-solid fa-truck-fast fa-3x mb-3 text-accent"></i>
+                                    <h3>Lojistik</h3>
+                                    <p class="text-muted">Nakliye, Depolama</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="form-label fw-bold">Alt Kategori Seçiniz:</label>
+                            <select id="subcategory-select" class="form-select" style="width: 100%; padding: 1rem;">
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+
+                        <div class="text-right mt-4" style="text-align: right;">
+                            <button class="btn btn-primary" onclick="nextStep(2)">İlerle <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dynamic Form -->
+                    <div class="step-content" id="step-2">
+                        <h2 class="section-title text-center" id="form-title">Ürün Detayları</h2>
+                        <form id="dynamic-form">
+                            <!-- Fields will be injected here by JS -->
+                        </form>
+
+                        <div class="form-footer mt-4" style="justify-content: space-between;">
+                            <button class="btn btn-secondary" onclick="prevStep(1)"><i
+                                    class="fa-solid fa-arrow-left"></i> Geri</button>
+                            <button class="btn btn-primary" onclick="nextStep(3)">İncele <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Review -->
+                    <div class="step-content" id="step-3">
+                        <div class="text-center">
+                            <i class="fa-solid fa-check-circle fa-5x text-success mb-3"></i>
+                            <h2>Talep Özeti</h2>
+                            <p class="text-muted">Lütfen bilgileri kontrol edip onaylayın.</p>
+                        </div>
+
+                        <div class="card bg-light mt-4 mb-4">
+                            <div id="review-content">
+                                <!-- Review details injected here -->
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning"
+                            style="background: #fff7ed; padding: 1rem; border-radius: 8px; border: 1px solid #ffedd5; color: #9a3412;">
+                            <i class="fa-solid fa-coins"></i> Bu işlem bakiyenizden <strong>1 Kredi</strong> düşecektir.
+                        </div>
+
+                        <div class="form-footer mt-4" style="justify-content: space-between;">
+                            <button class="btn btn-secondary" onclick="prevStep(2)"><i
+                                    class="fa-solid fa-arrow-left"></i> Düzenle</button>
+                            <button class="btn btn-primary" onclick="submitRequest()">Talebi Yayınla</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="wizard.js"></script>
+    <script>
+        // Init Subcategories on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSubCategories();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pazar Yeri | TradeFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">Trade<span class="highlight">Flow</span></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Genel Bakış</a></li>
+                    <li class="active"><a href="market.html"><i class="fa-solid fa-store"></i> Pazar Yeri</a></li>
+                    <li><a href="#"><i class="fa-solid fa-plus-circle"></i> Yeni Talep Oluştur</a></li>
+                    <li><a href="#"><i class="fa-solid fa-list-ul"></i> Taleplerim</a></li>
+                    <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Gelen Teklifler</a></li>
+                    <li><a href="#"><i class="fa-solid fa-wallet"></i> Bakiye ve Paketler</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building"></i> Firma Profili</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout"><i class="fa-solid fa-sign-out-alt"></i> Çıkış Yap</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Exchange Ticker (Inspired by Polymerio) -->
+            <div class="ticker-bar">
+                <div class="ticker-item"><i class="fa-solid fa-dollar-sign"></i> USD Alış: <strong>32.85</strong> Satış:
+                    <strong>33.10</strong>
+                </div>
+                <div class="ticker-item"><i class="fa-solid fa-euro-sign"></i> EUR Alış: <strong>35.90</strong> Satış:
+                    <strong>36.25</strong>
+                </div>
+                <div class="ticker-item"><i class="fa-solid fa-chart-pie"></i> Parite: <strong>1.09</strong></div>
+            </div>
+
+            <!-- Header -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Hammadde ve Ürün Pazarı</h1>
+                </div>
+                <div class="header-controls">
+                    <a href="create_request.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> İlan
+                        Ver</a>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Market Content -->
+            <div class="content-container">
+
+                <!-- Filter Section (Inspired by Polymerio) -->
+                <div class="filter-section card">
+                    <div class="filter-top">
+                        <div class="search-box">
+                            <i class="fa-solid fa-search"></i>
+                            <input type="text" placeholder="Ürün Kodu, Grubu veya Marka Arayın...">
+                        </div>
+                        <div class="quick-filters">
+                            <button class="filter-pill active">Tümü</button>
+                            <button class="filter-pill">PP</button>
+                            <button class="filter-pill">PE</button>
+                            <button class="filter-pill">PVC</button>
+                            <button class="filter-pill">ABS</button>
+                            <button class="filter-pill">PS</button>
+                        </div>
+                        <div class="status-toggle">
+                            <button class="status-btn active">Hazır</button>
+                            <button class="status-btn">İleri Tarihli</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-advanced">
+                        <select class="form-select">
+                            <option>Ürün Kategorisi</option>
+                        </select>
+                        <select class="form-select">
+                            <option>MFI / K Değeri</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Uygulama</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Marka</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Teslim Yeri</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listings Table -->
+                <div class="card table-card market-table-card mt-2">
+                    <div class="table-responsive">
+                        <table class="market-table">
+                            <thead>
+                                <tr>
+                                    <th width="50">Fav</th>
+                                    <th>Tarih</th>
+                                    <th>Ürün</th>
+                                    <th>Marka / Menşei</th>
+                                    <th>Kod</th>
+                                    <th>MFI</th>
+                                    <th>Teslim Durumu</th>
+                                    <th>Miktar</th>
+                                    <th>Birim Fiyat</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Item 1 -->
+                                <tr>
+                                    <td class="text-center"><i class="fa-regular fa-star text-muted"></i></td>
+                                    <td class="text-muted text-sm">Bugün</td>
+                                    <td>
+                                        <span class="badge badge-yellow">PVC</span>
+                                        <span class="product-sub">S-PVC</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">ARKEMA</div>
+                                        <div class="text-xs text-muted">Fransa</div>
+                                    </td>
+                                    <td class="fw-medium">S 7015</td>
+                                    <td><span class="text-sm">K 70</span></td>
+                                    <td>
+                                        <div class="fw-bold text-sm">İst-Avr Depo</div>
+                                        <span class="badge badge-green-soft">Hazır</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">22.000 KG</div>
+                                        <div class="text-xs text-muted">Min: 5 Ton</div>
+                                    </td>
+                                    <td class="price-cell">
+                                        <div class="blur-price" title="Fiyatları görmek için giriş yapın">
+                                            $$$.$$ <span class="text-xs">USD</span>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn btn-sm btn-outline">Teklif Ver</button></td>
+                                </tr>
+
+                                <!-- Item 2 -->
+                                <tr>
+                                    <td class="text-center"><i class="fa-solid fa-star text-warning"></i></td>
+                                    <td class="text-muted text-sm">Dün</td>
+                                    <td>
+                                        <span class="badge badge-blue">PE</span>
+                                        <span class="product-sub">LDPE</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">SABIC</div>
+                                        <div class="text-xs text-muted">S. Arabistan</div>
+                                    </td>
+                                    <td class="fw-medium">M 8000</td>
+                                    <td><span class="text-sm">2 - 3</span></td>
+                                    <td>
+                                        <div class="fw-bold text-sm">G.Antep Depo</div>
+                                        <span class="badge badge-green-soft">Hazır</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">150.000 KG</div>
+                                        <div class="text-xs text-muted">Bigbag</div>
+                                    </td>
+                                    <td class="price-cell">
+                                        <div class="fw-bold text-dark">1.250 <span class="text-xs">USD</span></div>
+                                    </td>
+                                    <td><button class="btn btn-sm btn-primary">Satın Al</button></td>
+                                </tr>
+
+                                <!-- Item 3 -->
+                                <tr>
+                                    <td class="text-center"><i class="fa-regular fa-star text-muted"></i></td>
+                                    <td class="text-muted text-sm">05.12</td>
+                                    <td>
+                                        <span class="badge badge-gray">PP</span>
+                                        <span class="product-sub">Rafya</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">PETKİM</div>
+                                        <div class="text-xs text-muted">Türkiye</div>
+                                    </td>
+                                    <td class="fw-medium">MH 418</td>
+                                    <td><span class="text-sm">4 - 5</span></td>
+                                    <td>
+                                        <div class="fw-bold text-sm">İzmir Fabrika</div>
+                                        <span class="badge badge-orange-soft">1 Hafta</span>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">500 Ton</div>
+                                        <div class="text-xs text-muted">Dökme</div>
+                                    </td>
+                                    <td class="price-cell">
+                                        <div class="fw-bold text-dark">1.100 <span class="text-xs">USD</span></div>
+                                    </td>
+                                    <td><button class="btn btn-sm btn-outline">Teklif Ver</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

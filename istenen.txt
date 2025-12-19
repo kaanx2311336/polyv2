@@ -1,0 +1,68 @@
+Sitenin içerisinde olması gereken fonksiyonlar şunlar :
+
+Öncelikle her ürünün ve hizmetin kendine ait kategorisi olacak. Ana başlıklar : 
+
+1. ÜRÜNLER
+a. Polimerler
+b. Kimyasal Katkı Malzemeleri
+c. Teknik ve Endüstriyel Malzemeler
+d. Endüstriyel Hurdalar ve Atıklar
+e. Ambalaj Malzemeleri
+
+2. MAKİNELER
+a. Yeni Makineler
+b. İkinci El Makineler
+
+3. HİZMETLER
+a. Fuar Hizmetleri
+b. Ticari Hizmetler
+c. Yatırım Projeleri
+d. Tesis Yönetimi ve Danışmanlık
+
+4. LOJİSTİK
+a. Yurt İçi Karayolu Taşımacılığı
+b. Uluslararası Taşımacılık
+c. Depo Hizmetleri
+
+Bu kategorilerin her birisi için, herhangi bir ürün ya da hizmette, alıcı ve satıcı arasında bir teklif süreci ilerler. Satıcı tarafında, sattığı ürüne dair miktar, marka-model, konum ve fiyat bilgisi gibi, kategoriye göre değişkenlik gösteren ürün bilgileri sunulur. Alıcı tarafında da keza aynı şekilde, talep edilen ürün ya da hizmete dair açıklayıcı bilgiler girilmelidir.
+Bu sayede, satış yapılan firmalar ile alıcı firmalar arasında bir teklifleşme söz konusu olur. 
+Bu yöntem kullanılarak, her bir talep tek bir sefere mahsus olmak kaydıyla, deadline da belirtilerek bir işlem gerçekleşir. İşlemi gerçekleştiren taraf alıcı ise, belirli sayıdaki satıcıya bu talep iletilir ve satıcılardan teklif toplanır ve talep eden alıcıya iletilir. Aynı şekilde işlemi gerçekleştiren taraf satıcı ise, belirli sayıdaki alıcıya bu talep iletilir ve alıcıların bilgisine sunulur. 
+
+Örnek 1 : Alıcı Talebi
+
+Talep No : 0000161225
+Ürün Cinsi : PVC
+Ürün Spesifik Özelliği : K70
+Menşei : Macaristan
+Uygulama Alanı : Kablo Üretimi
+Miktar : 100 Ton
+Ürün Durumu : Hazır
+Gümrükleme Statüsü : Millileşmiş
+Ambalaj Türü : Bigbag
+
+Alıcı, bu formattaki talebi sisteme yükler. Sistem de, bu talebi, en iyi eşleşen belirli sayıdaki satıcı firmaya gönderir. Satıcı firmalar da, bu talebin karşılığında, eğer ürünleri şartları sağlıyor ise, fiyat belirleyerek talebe yanıt verir.
+
+Satıcı - 1
+Talep No : 0000161225
+Fiyat : 1100 USD / Ton + KDV
+
+Satıcı - 2
+Talep No : 0000161225
+Fiyat : 1150 USD / Ton + KDV
+
+Satıcı - 3
+Talep No : 0000161225
+Fiyat : 1000 USD / Ton + KDV
+
+Bu şekilde, talebin ulaştığı ve teklif veren satıcıların teklifleri, alım talebi oluşturan firmaya iletilir. Bu şekilde, 1 talep oluşturulmuş ve sonuçlandırılmış olur.
+
+Sistemin işleme mantığı temel olarak budur. Sistemin, alıcı ve satıcı arasındaki ürün ticaretine dahil olma ihtimali, ileride yeniden değerlendirilecektir fakat ilk etapta yalnızca bu şekilde işlem oluşturularak sistem faaliyet gösterecektir.
+
+Sitenin - ya da uygulamanın - çalışma prensibi, talep üzerinedir. Bu sebeple, siteye üye olan ve işlem yapmak isteyen alıcı ve satıcılar, bu taleplerini site içerisinde, üyeliklerine ait krediler ile yapabilirler. Her bir kredi, bir adet talep oluşturma hakkı verir. Bu sayede, periyodik olarak, firmalar aktif talep oluşturma hakkına sahip olurlar. Sistem de, bu kredilerin üyeliklere satışını gerçekleştirir. 
+
+Örnek :
+Her bir talep : 1 Kredi
+
+10 Kredi Paketi : 100 Usd
+20 Kredi Paketi : 170 Usd
+50 Kredi Paketi : 350 Usd

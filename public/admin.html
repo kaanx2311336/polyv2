@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Paneli | TradeFlow Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Admin Specific Styles Override */
+        .admin-sidebar {
+            background-color: #1e293b;
+            /* Darker Slate */
+            color: #cbd5e1;
+            border-right: none;
+        }
+
+        .admin-sidebar .logo {
+            color: white;
+        }
+
+        .admin-sidebar .sidebar-nav ul li a {
+            color: #94a3b8;
+        }
+
+        .admin-sidebar .sidebar-nav ul li a:hover,
+        .admin-sidebar .sidebar-nav ul li.active a {
+            background-color: #334155;
+            color: white;
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .admin-sidebar .sidebar-footer {
+            border-top: 1px solid #334155;
+        }
+
+        /* Admin Action Buttons */
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-icon:hover {
+            background: #f1f5f9;
+            color: var(--accent-color);
+        }
+
+        .btn-icon.delete:hover {
+            background: #fef2f2;
+            color: var(--danger-color);
+            border-color: #fecaca;
+        }
+
+        .btn-icon.approve:hover {
+            background: #f0fdf4;
+            color: var(--success-color);
+            border-color: #bbf7d0;
+        }
+
+        /* Stats Chart Placeholder */
+        .chart-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #f8fafc;
+            border: 2px dashed #e2e8f0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-wrapper">
+        <!-- Admin Sidebar -->
+        <aside class="sidebar admin-sidebar">
+            <div class="sidebar-header">
+                <a href="admin.html" class="logo">Trade<span class="highlight">Admin</span></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="admin.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-users"></i> Üye Yönetimi (CRM) <span
+                                class="badge badge-yellow" style="margin-left:auto; font-size: 0.7rem;">2
+                                Yeni</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-list-check"></i> İlan Onayları</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-coins"></i> Finans & Krediler</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-chart-line"></i> Piyasa & Ticker</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-cogs"></i> Sistem Ayarları</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout"><i class="fa-solid fa-sign-out-alt"></i> Çıkış Yap</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Yönetici Özeti</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="user-profile">
+                        <span class="text-sm fw-bold me-2">Admin User</span>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=0f172a&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-container">
+
+                <!-- KPI Cards -->
+                <div class="grid-4 mb-4" style="margin-bottom: 2rem;">
+                    <div class="card stat-card">
+                        <div class="stat-icon bg-blue"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3>Toplam Üye</h3>
+                            <div class="stat-value">1,245</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon bg-orange"><i class="fa-solid fa-user-clock"></i></div>
+                        <div class="stat-info">
+                            <h3>Onay Bekleyen</h3>
+                            <div class="stat-value">12</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon bg-green"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                        <div class="stat-info">
+                            <h3>Günlük Ciro</h3>
+                            <div class="stat-value">$4,500</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon" style="background:#6366f1;"><i class="fa-solid fa-box"></i></div>
+                        <div class="stat-info">
+                            <h3>Aktif İlan</h3>
+                            <div class="stat-value">856</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="grid-2" style="grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+
+                    <!-- Pending Approvals -->
+                    <div class="card table-card">
+                        <div class="section-header" style="padding: 1.5rem 1.5rem 0.5rem;">
+                            <h2><i class="fa-solid fa-file-signature text-muted"></i> Son Üyelik Başvuruları</h2>
+                            <a href="#" class="text-sm text-accent">Tümünü Gör</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Firma Adı</th>
+                                        <th>Yetkili</th>
+                                        <th>Tarih</th>
+                                        <th>Durum</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="fw-bold">Delta Plastik Ltd.</span></td>
+                                        <td>Ahmet Yılmaz</td>
+                                        <td class="text-muted text-sm">Bugün, 10:30</td>
+                                        <td><span class="badge badge-yellow">İncelemede</span></td>
+                                        <td>
+                                            <button class="btn-icon approve" title="Onayla"><i
+                                                    class="fa-solid fa-check"></i></button>
+                                            <button class="btn-icon delete" title="Reddet"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="fw-bold">Mega Lojistik A.Ş.</span></td>
+                                        <td>Mehmet Demir</td>
+                                        <td class="text-muted text-sm">Dün, 15:45</td>
+                                        <td><span class="badge badge-yellow">İncelemede</span></td>
+                                        <td>
+                                            <button class="btn-icon approve" title="Onayla"><i
+                                                    class="fa-solid fa-check"></i></button>
+                                            <button class="btn-icon delete" title="Reddet"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="fw-bold">Kayseri Enjeksiyon</span></td>
+                                        <td>Veli Can</td>
+                                        <td class="text-muted text-sm">17.12.2025</td>
+                                        <td><span class="badge badge-yellow">Belge Eksik</span></td>
+                                        <td>
+                                            <button class="btn-icon" title="Detay"><i
+                                                    class="fa-solid fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Market Overview Chart -->
+                    <div class="card">
+                        <div class="section-header">
+                            <h2>Sistem Trafiği</h2>
+                        </div>
+                        <div class="chart-placeholder">
+                            <i class="fa-solid fa-chart-area fa-3x mb-3"></i>
+                            <p>Trafik Grafiği (JS Kütüphanesi Eklenecek)</p>
+                        </div>
+                        <div class="mt-4">
+                            <div class="d-flex"
+                                style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                <span class="text-muted text-sm">Ziyaretçi</span>
+                                <span class="fw-bold">12,500</span>
+                            </div>
+                            <div style="height:4px; background:#f1f5f9; border-radius:4px; overflow:hidden;">
+                                <div style="width:75%; height:100%; background:var(--accent-color);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Recent Activities (Logs) -->
+                <div class="card">
+                    <div class="section-header">
+                        <h2>Son Sistem Aktiviteleri</h2>
+                    </div>
+                    <ul style="max-height: 200px; overflow-y: auto;">
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display:flex; align-items:center; gap:1rem;">
+                            <div
+                                style="width:32px; height:32px; background:#dcfce7; color:#166534; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm"><strong>Alp Plastik</strong> yeni bir PVC talebi oluşturdu. (No:
+                                    #8852)</div>
+                                <div class="text-xs text-muted">2 dakika önce</div>
+                            </div>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display:flex; align-items:center; gap:1rem;">
+                            <div
+                                style="width:32px; height:32px; background:#fef3c7; color:#92400e; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm"><strong>Sistem</strong>: Ticker API bağlantısında gecikme yaşandı.
+                                </div>
+                                <div class="text-xs text-muted">15 dakika önce</div>
+                            </div>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display:flex; align-items:center; gap:1rem;">
+                            <div
+                                style="width:32px; height:32px; background:#e0e7ff; color:#3730a3; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm"><strong>Yeni Üye</strong>: Beta Kimya Sanayi sisteme kayıt oldu.
+                                </div>
+                                <div class="text-xs text-muted">1 saat önce</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

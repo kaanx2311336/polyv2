@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol | TradeFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-card register-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo">Trade<span class="highlight">Flow</span></a>
+                <h2>Hesap Oluşturun</h2>
+                <p>Global ticaret ağına katılmak için hemen firmanızı kaydedin.</p>
+            </div>
+
+            <form action="dashboard.html" class="auth-form">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="companyName">Firma Ünvanı</label>
+                        <div class="input-icon">
+                            <i class="fa-solid fa-building"></i>
+                            <input type="text" id="companyName" placeholder="Firma Adı Ltd. Şti." required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="taxId">Vergi No</label>
+                        <div class="input-icon">
+                            <i class="fa-solid fa-file-invoice"></i>
+                            <input type="text" id="taxId" placeholder="1234567890" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Posta Adresi</label>
+                    <div class="input-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" placeholder="iletisim@sirket.com" required>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <div class="input-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Şifre Tekrar</label>
+                        <div class="input-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        <a href="#">Kullanıcı Sözleşmesi</a>'ni okudum ve kabul ediyorum.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary full-width">Kayıt Ol</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Zaten hesabınız var mı? <a href="login.html">Giriş Yapın</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
