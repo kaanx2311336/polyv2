@@ -1,4 +1,7 @@
-FROM node:18-slim
+FROM alpine:3.18
+
+# Node.js ve npm'i paket yöneticisinden yükle (Docker Hub yerine Alpine repolarını kullanır)
+RUN apk add --no-cache nodejs npm
 
 # Çalışma dizinini oluştur
 WORKDIR /app
